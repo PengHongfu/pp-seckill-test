@@ -1,0 +1,62 @@
+server:
+  port: 8718
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: seckill-test
+
+  #mongodb
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
+
+  #redis 默认lettuce
+  redis:
+    host: localhost
+    password:
+    port: 6379
+    database: 2
+    lettuce:
+      pool:
+        max-active: 8 # 连接池最大连接数，默认为 8 。使用负数表示没有限制。
+        max-idle: 8 # 默认连接数最大空闲的连接数，默认为 8 。使用负数表示没有限制。
+        min-idle: 0 # 默认连接池最小空闲的连接数，默认为 0 。允许设置 0 和 正数。
+        max-wait: 1000ms # 连接池最大阻塞等待时间，单位：毫秒。默认为 -1 ，表示不限制。
+
+  #集成缓存
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+
+  #数据库
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    schema: classpath:db/schema-mysql.sql
+    #data: classpath:db/data-mysql.sql
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+
+#swagger api
+swagger:
+  base-package: com.pp.seckilltest
+  base-path: /**
+  contact:
+    email: xxx@qq.com
+    name: phf
+    url: http://xxx.com
+  description: Starter for swagger 2.x
+  enabled: true
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  title: 测试并发
+  version: 2.1.0.RELEASE
+
+#mybatis plus自动驼峰
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
