@@ -1,5 +1,5 @@
 server:
-  port: 8718
+  port: 8719
   servlet:
     context-path: /
 spring:
@@ -13,33 +13,40 @@ spring:
       port: 27017
       database: test
 
-  #redis Ä¬ÈÏlettuce
+  #redis é»˜è®¤lettuce
   redis:
     host: localhost
-    password:
     port: 6379
+    password: 2021
     database: 2
     lettuce:
       pool:
-        max-active: 8 # Á¬½Ó³Ø×î´óÁ¬½ÓÊı£¬Ä¬ÈÏÎª 8 ¡£Ê¹ÓÃ¸ºÊı±íÊ¾Ã»ÓĞÏŞÖÆ¡£
-        max-idle: 8 # Ä¬ÈÏÁ¬½ÓÊı×î´ó¿ÕÏĞµÄÁ¬½ÓÊı£¬Ä¬ÈÏÎª 8 ¡£Ê¹ÓÃ¸ºÊı±íÊ¾Ã»ÓĞÏŞÖÆ¡£
-        min-idle: 0 # Ä¬ÈÏÁ¬½Ó³Ø×îĞ¡¿ÕÏĞµÄÁ¬½ÓÊı£¬Ä¬ÈÏÎª 0 ¡£ÔÊĞíÉèÖÃ 0 ºÍ ÕıÊı¡£
-        max-wait: 1000ms # Á¬½Ó³Ø×î´ó×èÈûµÈ´ıÊ±¼ä£¬µ¥Î»£ººÁÃë¡£Ä¬ÈÏÎª -1 £¬±íÊ¾²»ÏŞÖÆ¡£
+        max-active: 8 # è¿æ¥æ± æœ€å¤§è¿æ¥æ•°ï¼Œé»˜è®¤ä¸º 8 ã€‚ä½¿ç”¨è´Ÿæ•°è¡¨ç¤ºæ²¡æœ‰é™åˆ¶ã€‚
+        max-idle: 8 # é»˜è®¤è¿æ¥æ•°æœ€å¤§ç©ºé—²çš„è¿æ¥æ•°ï¼Œé»˜è®¤ä¸º 8 ã€‚ä½¿ç”¨è´Ÿæ•°è¡¨ç¤ºæ²¡æœ‰é™åˆ¶ã€‚
+        min-idle: 0 # é»˜è®¤è¿æ¥æ± æœ€å°ç©ºé—²çš„è¿æ¥æ•°ï¼Œé»˜è®¤ä¸º 0 ã€‚å…è®¸è®¾ç½® 0 å’Œ æ­£æ•°ã€‚
+        max-wait: 3000 # è¿æ¥æ± æœ€å¤§é˜»å¡ç­‰å¾…æ—¶é—´ï¼Œå•ä½ï¼šæ¯«ç§’ã€‚é»˜è®¤ä¸º -1 ï¼Œè¡¨ç¤ºä¸é™åˆ¶ã€‚
+    redisson:
+      # é…ç½®å•ç‚¹æ¨¡å¼
+      file: classpath:redisson.yml
 
-  #¼¯³É»º´æ
+
+  #é›†æˆç¼“å­˜
   cache:
     type: redis
     redis:
       cache-null-values: true
 
-  #Êı¾İ¿â
+
+  #æ•°æ®åº“
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     schema: classpath:db/schema-mysql.sql
-    #data: classpath:db/data-mysql.sql
-    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false
+    data: classpath:db/data-mysql.sql
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: root
+    #alwaysä¸ºå§‹ç»ˆæ‰§è¡Œåˆå§‹åŒ–ï¼Œembeddedåªåˆå§‹åŒ–å†…å­˜æ•°æ®åº“ï¼ˆé»˜è®¤å€¼ï¼‰,å¦‚h2ç­‰ï¼Œneverä¸ºä¸æ‰§è¡Œåˆå§‹åŒ–
+    initialization-mode: always
 
 #swagger api
 swagger:
@@ -53,10 +60,11 @@ swagger:
   enabled: true
   license: Apache License, Version 2.0
   licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
-  title: ²âÊÔ²¢·¢
+  title: æµ‹è¯•å¹¶å‘
   version: 2.1.0.RELEASE
 
-#mybatis plus×Ô¶¯ÍÕ·å
+#mybatis plusè‡ªåŠ¨é©¼å³°
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+

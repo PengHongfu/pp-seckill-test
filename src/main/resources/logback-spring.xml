@@ -145,18 +145,7 @@
             可以包含零个或多个元素，标识这个appender将会添加到这个logger。
      -->
     <!--配置mybatis sql 日志-->
-    <logger name="com.zunhong.activitymodule.mapper" level="DEBUG"/>
-    <logger name="springfox.documentation" level="WARN"/>
-    <logger name="springfox.documentation" level="WARN"/>
-    <logger name="org.springframework" level="WARN"/>
-    <logger name="com.mchange.v2" level="WARN"/>
-    <logger name="metrics_influxdb.measurements" level="WARN"/>
-    <logger name="org.eclipse.jetty" level="WARN"/>
-    <logger name="RocketmqClient" level="WARN"/>
-    <logger name="RocketmqRemoting" level="WARN"/>
-    <logger name="org.jaudiotagger" level="WARN"/>
-    <logger name="cn.binarywang.wx.miniapp" level="debug"/>
-    <logger name="org.mongodb.driver" level="WARN"/>
+    <logger name="com.pp.seckilltest.mapper" level="info"/>
 
     <root level="info">
         <appender-ref ref="CONSOLE"/>
