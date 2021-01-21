@@ -1,4 +1,4 @@
-package com.pp.seckilltest.delay.jvm;
+package com.pp.seckilltest.queue.delay.jvm;
 
 import com.pp.seckilltest.entity.Result;
 import com.pp.seckilltest.entity.SuccessKilled;

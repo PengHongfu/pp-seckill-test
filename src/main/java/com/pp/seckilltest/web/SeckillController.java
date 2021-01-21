@@ -1,8 +1,8 @@
 package com.pp.seckilltest.web;
 
-import com.pp.seckilltest.delay.jvm.SeckillQueue;
 import com.pp.seckilltest.entity.Result;
 import com.pp.seckilltest.entity.SuccessKilled;
+import com.pp.seckilltest.queue.delay.jvm.SeckillQueue;
 import com.pp.seckilltest.service.SeckillService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

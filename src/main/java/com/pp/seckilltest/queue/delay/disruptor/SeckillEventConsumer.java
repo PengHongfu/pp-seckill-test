@@ -1,4 +1,4 @@
-package com.pp.seckilltest.delay.disruptor;
+package com.pp.seckilltest.queue.delay.disruptor;
 
 import com.lmax.disruptor.EventHandler;
 import com.pp.seckilltest.config.SpringUtil;
