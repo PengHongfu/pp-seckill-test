@@ -1,4 +1,4 @@
-package com.pp.seckilltest.config;
+package com.pp.seckilltest.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

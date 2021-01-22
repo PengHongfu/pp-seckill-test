@@ -1,10 +1,10 @@
 package com.pp.seckilltest.queue.delay.disruptor;
 
 import com.lmax.disruptor.EventHandler;
-import com.pp.seckilltest.config.SpringUtil;
 import com.pp.seckilltest.entity.Result;
 import com.pp.seckilltest.enums.SeckillStatEnum;
 import com.pp.seckilltest.service.SeckillService;
+import com.pp.seckilltest.util.SpringUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
