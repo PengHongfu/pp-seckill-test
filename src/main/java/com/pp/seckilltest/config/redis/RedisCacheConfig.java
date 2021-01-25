@@ -58,7 +58,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
                                                GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer) {
         RedisCacheConfiguration cacheConfiguration =
                 RedisCacheConfiguration.defaultCacheConfig()
-                        // 设置缓存过期时间为5小时
+                        // 设置缓存过期时间为10小时
                         .entryTtl(Duration.ofHours(10))
                         // 禁用缓存空值，不缓存null校验
                         .disableCachingNullValues()
@@ -66,8 +66,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
                         .serializeValuesWith(RedisSerializationContext.SerializationPair
                                 .fromSerializer(genericJackson2JsonRedisSerializer));
         Map<String, RedisCacheConfiguration> configurationMap = new HashMap<>(16);
-        //缓存键,且30秒后过期,30秒后再次调用方法时需要重新缓存
-        configurationMap.put("test", cacheConfiguration.entryTtl(Duration.ofDays(180)));
+        //缓存键 设置指定key的保存时长
+        configurationMap.put("test", cacheConfiguration.entryTtl(Duration.ofDays(1)));
         // 设置默认的cache组件
         return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(cacheConfiguration)
                 .withInitialCacheConfigurations(configurationMap)

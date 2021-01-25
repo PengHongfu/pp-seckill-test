@@ -4,13 +4,11 @@ import com.pp.seckilltest.aop.Servicelock;
 import com.pp.seckilltest.entity.Result;
 import com.pp.seckilltest.entity.Seckill;
 import com.pp.seckilltest.entity.SuccessKilled;
-import com.pp.seckilltest.entity.User;
 import com.pp.seckilltest.enums.SeckillStatEnum;
 import com.pp.seckilltest.mapper.SeckillMapper;
 import com.pp.seckilltest.mapper.SuccessKilledMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,9 +31,6 @@ public class SeckillService {
 
     @Autowired
     private SuccessKilledMapper successKilledMapper;
-
-    @Resource
-    MongoTemplate mongotemplate;
 
     /**
      * 不公平锁
@@ -187,17 +182,5 @@ public class SeckillService {
             }
         }
         return Result.error(SeckillStatEnum.END);
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    public boolean test() {
-        User user = new User();
-        user.setUserName("ttt1").setPassWord("32423");
-        mongotemplate.save(user);
-        int a = 1 / 0;
-        User user1 = new User();
-        user1.setUserName("ttt2").setPassWord("32423");
-        mongotemplate.save(user1);
-        return true;
     }
 }

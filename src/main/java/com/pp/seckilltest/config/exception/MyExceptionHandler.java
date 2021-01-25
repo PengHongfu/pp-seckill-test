@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class MyExceptionHandler {
 
+    @ExceptionHandler(RepeatException.class)
+    public Object repeatException(RepeatException e) {
+        return Result.error(e.getMessage());
+    }
+
     @ExceptionHandler(RuntimeException.class)
     public Object exception(RuntimeException e) {
         log.error("出现异常", e);

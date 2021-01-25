@@ -6,11 +6,6 @@ spring:
   application:
     name: seckill-test
 
-  #mongodb
-  data:
-    mongodb:
-      uri: mongodb://localhost:37017,localhost:47017,localhost:57017/test?slaveOk=true&replicaSet=rs0
-
   #redis 默认lettuce
   redis:
     host: localhost
@@ -114,4 +109,3 @@ mybatis-plus:
 
 zookeeper:
   url: 127.0.0.1:2181
-  mongo --host 172.17.0.4 --port 37017

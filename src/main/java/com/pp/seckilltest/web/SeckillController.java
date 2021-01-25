@@ -211,13 +211,4 @@ public class SeckillController {
         }
         return Result.ok();
     }
-
-    /**
-     * mongoDB单个实例不支持事务，副本集才支持事务
-     */
-    @ApiOperation(value = "测试mongodb事务")
-    @PostMapping("/test")
-    public Boolean start7() {
-        return seckillService.test();
-    }
 }

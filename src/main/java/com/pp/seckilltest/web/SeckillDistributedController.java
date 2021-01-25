@@ -1,6 +1,8 @@
 package com.pp.seckilltest.web;
 
+import com.pp.seckilltest.aop.RepeatLock;
 import com.pp.seckilltest.entity.Result;
+import com.pp.seckilltest.entity.Seckill;
 import com.pp.seckilltest.service.SeckillDistributedService;
 import com.pp.seckilltest.service.SeckillService;
 import io.swagger.annotations.Api;
@@ -53,10 +55,14 @@ public class SeckillDistributedController {
         return Result.ok();
     }
 
+    /**
+     * RepeatLock 1s中不允许重复提交
+     */
+    @RepeatLock(prefix = "init", expire = 1)
     @ApiOperation(value = "初始化商品")
     @GetMapping("/init")
-    public Result test(long seckillId) {
-        seckillService.deleteSeckill(seckillId);
+    public Result test(Seckill seckill) {
+        seckillService.deleteSeckill(seckill.getSeckillId());
         return Result.ok();
     }
 
