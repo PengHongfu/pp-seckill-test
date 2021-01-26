@@ -40,6 +40,7 @@ http{
 ```
 代码引入了spring-cache但未使用,自行使用
 未使用nginx限流
+会逐步更新 加入Sentinel限流
 
 `参考: `
 ```
