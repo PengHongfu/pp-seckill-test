@@ -41,8 +41,10 @@ http{
 代码引入了spring-cache但未使用,自行使用
 未使用nginx限流
 
-参考: 
+`参考: `
+```
 重复提交:http://www.iocoder.cn/Spring-Boot/battcn/v2-cache-redislock/
 秒杀:https://gitee.com/52itstyle/spring-boot-seckill
 Redisson分布锁:https://github.com/redisson/redisson/wiki/14.-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88
 docker仓库:https://hub.docker.com/
+```
